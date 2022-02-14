@@ -11,6 +11,10 @@ namespace Notes.Persistence.EntityTypeConfigurations
             builder.HasKey(note => note.Id);
             builder.HasIndex(note => note.Id).IsUnique();
             builder.Property(note => note.Title).HasMaxLength(200);
+
+            builder.HasOne<Author>(note => note.Сreator)
+                   .WithMany(creator => creator.Notes)
+                   .HasForeignKey(note => note.AuthorId);
         }
     }
 }

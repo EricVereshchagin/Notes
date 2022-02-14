@@ -10,11 +10,14 @@ namespace Notes.Persistence
     {
         public DbSet<Note> Notes { get; set; }
 
+        public DbSet<Author> Сreators { get; set; }
+
         public NotesDbContext(DbContextOptions<NotesDbContext> options)
             : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.ApplyConfiguration(new AuthorConfiguration());
             builder.ApplyConfiguration(new NoteConfiguration());
             base.OnModelCreating(builder);
         }
