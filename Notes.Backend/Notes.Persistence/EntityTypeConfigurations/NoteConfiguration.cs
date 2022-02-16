@@ -14,7 +14,7 @@ namespace Notes.Persistence.EntityTypeConfigurations
 
             builder.HasOne<Author>(note => note.Сreator)
                    .WithMany(creator => creator.Notes)
-                   .HasForeignKey(note => note.AuthorId);
+                   .HasForeignKey(note => note.CreatorId);
         }
     }
 }
