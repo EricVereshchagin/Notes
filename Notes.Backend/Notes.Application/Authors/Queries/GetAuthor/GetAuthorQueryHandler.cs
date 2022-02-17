@@ -1,11 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Notes.Application.Interfaces;
 using Notes.Application.Common.Exceptions;
 using Notes.Domain;
-using System.Linq;
 using AutoMapper;
 
 namespace Notes.Application.Authors.Queries.GetAuthor

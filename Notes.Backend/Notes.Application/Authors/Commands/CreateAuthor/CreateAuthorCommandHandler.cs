@@ -3,7 +3,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Notes.Domain;
-using Notes.Application.Common.Exceptions;
 using Notes.Application.Interfaces;
 
 namespace Notes.Application.Authors.Commands.CreateAuthor

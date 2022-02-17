@@ -10,6 +10,8 @@ using Notes.Application.Notes.Commands.DeleteNote;
 using Notes.Application.Notes.Commands.UpdateNote;
 using Notes.WebApi.Models;
 using AutoMapper;
+using System.Collections.Generic;
+
 
 namespace Notes.WebApi.Controllers
 {
@@ -84,7 +86,7 @@ namespace Notes.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateList([FromBody] CreateListNotesDto createListNotesDto)
+        public async Task<ActionResult<ICollection<Guid>>> CreateList([FromBody] CreateListNotesDto createListNotesDto)
         {
             var command = _mapper.Map<CreateListNotesCommand>(createListNotesDto);
             command.CreatorId = UserId;

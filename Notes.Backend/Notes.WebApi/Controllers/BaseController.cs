@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Security.Claims;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,8 +13,12 @@ namespace Notes.WebApi.Controllers
         private IMediator _mediator;
         protected IMediator Mediator =>
             _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
-        internal Guid UserId => !User.Identity.IsAuthenticated
+        internal Guid UserId 
+        { 
+            get => !User.Identity.IsAuthenticated
             ? Guid.Empty
             : Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            set => UserId = value;   
+        }
     }
 }
