@@ -8,6 +8,6 @@ namespace Notes.Application.Authors.Commands.UpdateAuthor
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public Image Photo { get; set; }
+        public byte[] Photo { get; set; }
     }
 }
